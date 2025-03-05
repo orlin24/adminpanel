@@ -25,17 +25,17 @@ sudo mkdir -p /var/www/html
 cd /var/www/html
 
 # Clone Repository dari GitHub jika belum ada
-if [ ! -d "badutstream" ]; then
+if [ ! -d "adminpanel" ]; then
     echo -e "\e[32mCloning repository...\e[0m"
     git clone https://github.com/orlin24/adminpanel.git
 else
-    echo -e "\e[32mRepository 'badutstream' already exists. Pulling latest changes...\e[0m"
-    cd badutstream
+    echo -e "\e[32mRepository 'adminpanel' already exists. Pulling latest changes...\e[0m"
+    cd adminpanel
     git pull
     cd ..
 fi
 
-cd badutstream
+cd adminpanel
 
 # Beri Izin Akses yang Lebih Aman
 echo -e "\e[32mSetting folder permissions to 755 and ownership to www-data...\e[0m"
@@ -62,9 +62,9 @@ else
 fi
 
 # Jalankan Aplikasi di dalam tmux session (default: badutstream)
-echo -e "\e[32mStarting application in tmux session 'badutstream'...\e[0m"
+echo -e "\e[32mStarting application in tmux session 'adminpanel'...\e[0m"
 if [ -f "app.py" ]; then
-    tmux new-session -d -s badutstream "cd $(pwd) && source venv/bin/activate && python3 app.py; exec bash"
+    tmux new-session -d -s adminpanel "cd $(pwd) && source venv/bin/activate && python3 app.py; exec bash"
 else
     echo -e "\e[32mError: app.py not found. Skipping tmux session.\e[0m"
 fi
