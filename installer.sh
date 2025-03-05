@@ -27,7 +27,7 @@ cd /var/www/html
 # Clone Repository dari GitHub jika belum ada
 if [ ! -d "badutstream" ]; then
     echo -e "\e[32mCloning repository...\e[0m"
-    git clone https://github.com/orlin24/badutstream.git
+    git clone https://github.com/orlin24/adminpanel.git
 else
     echo -e "\e[32mRepository 'badutstream' already exists. Pulling latest changes...\e[0m"
     cd badutstream
