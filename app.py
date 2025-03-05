@@ -17,6 +17,11 @@ users = {'admin': 'admin'}
 # File untuk menyimpan data
 DATA_FILE = 'data.json'
 
+if not os.path.exists(DATA_FILE):
+    with open(DATA_FILE, 'w') as f:
+        json.dump([], f)
+    logging.info(f"Created empty {DATA_FILE}")
+
 # Load data dari file
 def load_data():
     if os.path.exists(DATA_FILE):
@@ -36,9 +41,9 @@ def save_data(data):
 # Format teks yang diinginkan (tanpa password)
 def generate_text_content(data):
     return f"""Nama Pemesan: {data['nama']}
-IP Address: {data['ip']}:5000
+IP Address: {data['ip']}
 User: admin
-Password: admin
+Passwords: admin
 Tanggal Masa Berlaku Sampai: {data['tanggal']}
 
 CARA AKSES
